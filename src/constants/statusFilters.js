@@ -1,0 +1,5 @@
+export default {
+  ALL: 'ALL',
+  COMPLETED: 'COMPLETED',
+  UNCOMPLETED: 'UNCOMPLETED',
+};
