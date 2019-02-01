@@ -14,8 +14,8 @@
         </button>
         <button
           @click="toggleTodo()"
-          class="sm:p-2 sm:border-2 w-12 sm:mr-2 p-1 w-auto rounded focus:outline-none"
-          :class="todo.done ? 'sm:border-green-light xl:hover:bg-white bg-green-light xl:hover:text-green-light text-white' 
+          class="sm:p-2 sm:border-2  sm:mr-2 p-1 w-auto rounded focus:outline-none"
+          :class="todo.done ? 'sm:border-green-light xl:hover:bg-white text-green-light xl:hover:text-green-light' 
                                     : 'sm:border-blue-light xl:hover:bg-blue-light xl:hover:text-white text-blue-light'"
         >
           <font-awesome-icon :icon="['fas', 'check-circle']"/>

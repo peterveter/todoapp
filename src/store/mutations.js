@@ -4,7 +4,7 @@ import uuid from 'uuid/v1';
 
 export default {
   [types.ADD_TODO](state, payload) {
-    state.todos = [...state.todos, { id: uuid(), text: payload, done: false }];
+    state.todos = [...state.todos, { id: uuid(), done: false, ...payload }];
   },
   [types.DELETE_TODO](state, payload) {
     state.todos = state.todos.filter(todo => todo.id !== payload);
@@ -31,5 +31,8 @@ export default {
   },
   [types.CHANGE_FILTER_STATUS](state, payload) {
     state.filterStatus = payload;
+  },
+  [types.SET_TODOS](state, payload) {
+    state.todos = payload;
   },
 };

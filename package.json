@@ -12,8 +12,11 @@
     "@fortawesome/free-regular-svg-icons": "^5.7.0",
     "@fortawesome/free-solid-svg-icons": "^5.7.0",
     "@fortawesome/vue-fontawesome": "^0.1.5",
+    "axios": "^0.18.0",
+    "r3shaper": "^0.1.4",
     "uuid": "^3.3.2",
     "vue": "^2.5.21",
+    "vue-spinner-component": "^1.0.5",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -24,6 +27,8 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
     "tailwindcss": "^0.7.4",
     "vue-template-compiler": "^2.5.21"
   },

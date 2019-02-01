@@ -8,7 +8,7 @@
       >TODOS</div>
 
       <div class="w-auto m-2 p-3 bg-white rounded flex-col mb-6">
-        <div class="mb-3 flex flex-col sm:flex-row">
+        <div class="flex flex-col sm:flex-row">
           <input
             v-model.trim="newTodoName"
             placeholder="What to do?"
@@ -26,7 +26,7 @@
           </button>
         </div>
 
-        <div v-if="filteredTodos.length" class="my-4 sm:my-6 flex-col">
+        <div class="my-4 mt-3 sm:my-6 flex-col" v-if="filteredTodos.length">
           <todo-item
             v-for="todo in filteredTodos"
             :todo="todo"
@@ -34,6 +34,15 @@
             @delete-todo="deleteTodo(todo.id)"
             @toggle-todo="toggleTodo(todo.id)"
           ></todo-item>
+        </div>
+        <div class="flex items-center justify-center h-24 w-full" v-else-if="todos.length">
+          <div
+            class="w-full text-lg sm:text-2xl flex justify-center font-sans text-grey-light"
+          >Items not found.</div>
+        </div>
+
+        <div class="flex items-center justify-center h-32 w-full" v-else>
+          <spinner :size="40"></spinner>
         </div>
 
         <todo-filters
@@ -51,19 +60,24 @@
 <script>
 import TodoItem from './TodoItem';
 import TodoFilters from './TodoFilters';
-import { mapState, mapGetters, mapActions } from 'vuex';
 import store from '../store';
+import { mapState, mapGetters, mapActions } from 'vuex';
+import Spinner from 'vue-spinner-component/src/Spinner.vue';
 
 export default {
   components: {
     TodoItem,
     TodoFilters,
+    Spinner,
   },
   data: () => ({
     newTodoName: '',
   }),
+  created() {
+    this.fetchTodo(1);
+  },
   computed: {
-    ...mapState(['filterQuery', 'filterStatus']),
+    ...mapState(['todos', 'filterQuery', 'filterStatus']),
     ...mapGetters(['filteredTodos']),
     isButtonDisabled() {
       return this.newTodoName.length === 0;
@@ -77,9 +91,11 @@ export default {
       'resetFilters',
       'updateQueryFilter',
       'changeFilterStatus',
+      'fetchTodos',
+      'fetchTodo',
     ]),
     addTodoClicked() {
-      this.addTodo(this.newTodoName);
+      this.addTodo({ text: this.newTodoName });
 
       this.newTodoName = '';
     },
