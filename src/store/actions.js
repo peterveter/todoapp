@@ -22,14 +22,16 @@ export default {
   changeFilterStatus({ commit }, payload) {
     commit(types.CHANGE_FILTER_STATUS, payload);
   },
-  fetchTodos({ commit }) {
-    TodoResource.index().then(todos => commit(types.SET_TODOS, todos));
+  async fetchTodos({ commit }) {
+    const todos = await TodoResource.index();
+    commit(types.SET_TODOS, todos);
   },
-  fetchTodo({ dispatch }, payload) {
-    TodoResource.show({
+  async fetchTodo({ dispatch }, payload) {
+    const todo = await TodoResource.show({
       params: {
         id: payload,
       },
-    }).then(todo => dispatch('addTodo', todo));
+    });
+    dispatch('addTodo', todo);
   },
 };

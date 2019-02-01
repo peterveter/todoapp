@@ -1,4 +1,4 @@
 export const todoEndpoints = {
-    index: '/todos',
-    show: '/todos/{id}',
+    index: 'todos',
+    show: 'todos/{id}',
 }

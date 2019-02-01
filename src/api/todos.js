@@ -1,10 +1,10 @@
 import apiClient from './';
 import { todoEndpoints } from '../constants/endpoints';
 
-const normalizeTodo = todo => ({
-  id: todo.id,
-  text: todo.title,
-  done: todo.completed,
+const normalizeTodo = ({ id, title, completed }) => ({
+  id: id,
+  text: title,
+  done: completed,
 });
 
 export const TodoResource = {

@@ -60,7 +60,6 @@
 <script>
 import TodoItem from './TodoItem';
 import TodoFilters from './TodoFilters';
-import store from '../store';
 import { mapState, mapGetters, mapActions } from 'vuex';
 import Spinner from 'vue-spinner-component/src/Spinner.vue';
 
@@ -74,7 +73,7 @@ export default {
     newTodoName: '',
   }),
   created() {
-    this.fetchTodo(1);
+    this.fetchTodos();
   },
   computed: {
     ...mapState(['todos', 'filterQuery', 'filterStatus']),

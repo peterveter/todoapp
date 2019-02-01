@@ -14,6 +14,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.5",
     "axios": "^0.18.0",
     "r3shaper": "^0.1.4",
+    "request": "^2.88.0",
     "uuid": "^3.3.2",
     "vue": "^2.5.21",
     "vue-spinner-component": "^1.0.5",
